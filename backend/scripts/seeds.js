@@ -16,7 +16,7 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.log(err));
 
 async function createUsers() {
-  const usersData = Array.from({ length: 10 }, (_, i) => ({
+  const usersData = Array.from({ length: 100 }, (_, i) => ({
     username: `user${i}`,
     email: `user${i}@example.com`,
     bio: `A bio for user${i}`,
@@ -31,7 +31,7 @@ async function createUsers() {
 }
 
 async function createItems(users) {
-  const itemsData = Array.from({ length: 10 }, (_, i) => ({
+  const itemsData = Array.from({ length: 100 }, (_, i) => ({
     title: `Item ${i}`,
     description: `Description for item ${i}`,
     image: `https://example.com/item${i}.jpg`,
@@ -45,7 +45,7 @@ async function createItems(users) {
 }
 
 async function createComments(users, items) {
-  const commentsData = Array.from({ length: 30 }, (_, i) => ({
+  const commentsData = Array.from({ length: 100 }, (_, i) => ({
     body: `Comment ${i} body text`,
     seller: users[i % users.length]._id, // Assign comment to a user
     item: items[i % items.length]._id, // Assign comment to an item
